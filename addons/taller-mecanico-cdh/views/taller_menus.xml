@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--    Acciones de menu-->
+    <menuitem id="menu_taller" name="Taller Mecánico"/>
+    <menuitem id="menu_reparaciones" name="Reparaciones" parent="menu_taller"/>
+    <record id="action_cliente" model="ir.actions.act_window">
+        <field name="name">Clientes</field>
+        <field name="res_model">taller.cliente</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+    <record id="action_vehiculo" model="ir.actions.act_window">
+        <field name="name">Vehículos</field>
+        <field name="res_model">taller.vehiculo</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+    <record id="action_mecanico" model="ir.actions.act_window">
+        <field name="name">Mecánicos</field>
+        <field name="res_model">taller.mecanico</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_taller_repuesto" model="ir.actions.act_window">
+        <field name="name">Repuestos</field>
+        <field name="res_model">taller.repuesto</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_reparaciones" model="ir.actions.act_window">
+        <field name="name">Reparaciones</field>
+        <field name="res_model">taller.reparacion</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+
+    <!--Entradas de menú-->
+    <record id="menu_cliente" model="ir.ui.menu">
+        <field name="name">Clientes</field>
+        <field name="parent_id" ref="menu_taller"/>
+        <field name="action" ref="action_cliente"/>
+        <field name="sequence">20</field>
+    </record>
+    <record id="menu_vehiculo" model="ir.ui.menu">
+        <field name="name">Vehículos</field>
+        <field name="parent_id" ref="menu_taller"/>
+        <field name="action" ref="action_vehiculo"/>
+        <field name="sequence">30</field>
+    </record>
+    <record id="menu_reparaciones" model="ir.ui.menu">
+        <field name="name">Reparaciones</field>
+        <field name="parent_id" ref="menu_taller"/>
+        <field name="action" ref="action_reparaciones"/>
+        <field name="sequence">40</field>
+    </record>
+    <record id="menu_mecanico" model="ir.ui.menu">
+        <field name="name">Mecánicos</field>
+        <field name="parent_id" ref="menu_taller"/>
+        <field name="action" ref="action_mecanico"/>
+        <field name="sequence">50</field>
+    </record>
+    <record id="menu_taller_repuesto" model="ir.ui.menu">
+        <field name="name">Repuestos</field>
+        <field name="parent_id" ref="menu_taller"/>
+        <field name="action" ref="action_taller_repuesto"/>
+        <field name="sequence">10</field>
+    </record>
+</odoo>

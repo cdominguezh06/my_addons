@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <!-- Vista de formulario -->
+        <record id="view_mecanico_form" model="ir.ui.view">
+            <field name="name">taller.mecanico.form</field>
+            <field name="model">taller.mecanico</field>
+            <field name="arch" type="xml">
+                <form string="Mecánico">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="telefono"/>
+                            <field name="especialidad"/>
+                        </group>
+                        <notebook>
+                            <page string="Reparaciones">
+                                <field name="reparacion_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="fecha_ingreso"/>
+                                        <field name="fecha_salida"/>
+                                        <field name="estado"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de árbol -->
+        <record id="view_mecanico_tree" model="ir.ui.view">
+            <field name="name">taller.mecanico.tree</field>
+            <field name="model">taller.mecanico</field>
+            <field name="arch" type="xml">
+                <tree string="Mecánico">
+                    <field name="name"/>
+                    <field name="telefono"/>
+                    <field name="especialidad"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

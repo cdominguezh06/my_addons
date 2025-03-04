@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vista de arbol -->
+    <record id="view_taller_repuesto_tree" model="ir.ui.view">
+        <field name="name">taller.repuesto.tree</field>
+        <field name="model">taller.repuesto</field>
+        <field name="arch" type="xml">
+            <tree string="Repuestos">
+                <field name="name"/>
+                <field name="precio"/>
+                <field name="currency_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de formulario -->
+    <record id="view_taller_repuesto_form" model="ir.ui.view">
+        <field name="name">taller.repuesto.form</field>
+        <field name="model">taller.repuesto</field>
+        <field name="arch" type="xml">
+            <form string="Repuesto">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="precio"/>
+                        <field name="currency_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

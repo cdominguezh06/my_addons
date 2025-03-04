@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <!-- Vista de formulario -->
+        <record id="view_vehiculo_form" model="ir.ui.view">
+            <field name="name">taller.vehiculo.form</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <form string="Vehículo">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="matricula"/>
+                                <field name="marca"/>
+                                <field name="modelo"/>
+                                <field name="anio"/>
+                            </group>
+                            <group>
+                                <field name="cliente_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Historial de Reparaciones">
+                                <field name="reparacion_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="fecha_ingreso"/>
+                                        <field name="fecha_salida"/>
+                                        <field name="estado"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de árbol -->
+        <record id="view_vehiculo_tree" model="ir.ui.view">
+            <field name="name">taller.vehiculo.tree</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <tree string="Vehículo">
+                    <field name="matricula"/>
+                    <field name="marca"/>
+                    <field name="modelo"/>
+                    <field name="anio"/>
+                    <field name="cliente_id"/>
+                </tree>
+            </field>
+        </record>
+
+         <!-- Vista de búsqueda -->
+        <record id="view_vehiculo_search" model="ir.ui.view">
+            <field name="name">taller.vehiculo.search</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Vehiculos">
+                    <field name="matricula"/>
+                    <field name="marca"/>
+                    <field name="modelo"/>
+                    <field name="anio"/>
+                    <filter string="Fabricados en 2020s" name="fabricados_en_2020" domain="[('anio', '>=', 2020)]"/>
+                    <group expand="1" string="Agrupar por">
+                        <filter string="Propietario" name="propietario" context="{'group_by': 'cliente_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

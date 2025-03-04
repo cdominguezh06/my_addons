@@ -1,0 +1,21 @@
+services:
+  web:
+    image: odoo:16.0
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./addons:/var/lib/odoo/my_addons
+      - ./config:/etc/odoo
+      - ./data:/var/lib/odoo
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
